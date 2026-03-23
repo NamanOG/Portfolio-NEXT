@@ -85,8 +85,77 @@ body {
 }
 
 @layer base {
-  /* Removed global border apply to fix layout and build errors */
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.marquee-band {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.08);
+}
+
+.marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+}
+
+.marquee-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), transparent);
+}
+
+.marquee-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.85), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  animation: marquee-scan 16s linear infinite;
+}
+
+.marquee-row {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Exan", Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(0, 255, 255, 0.85);
+  padding: 0.4rem 0.8rem;
+}
+
+.marquee-dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(180, 255, 60, 0.85);
+  box-shadow: 0 0 10px rgba(180, 255, 60, 0.8);
+}
+
+@keyframes marquee-scan {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
