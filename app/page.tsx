@@ -1214,7 +1214,7 @@ export default function Portfolio() {
                           </div>
                           <div className="flex items-center justify-between">
                             <span>Availability</span>
-                            <span className="text-lime-300">Open</span>
+                            <span className="text-lime-300">Open for collaborations</span>
                           </div>
                           <div className="flex items-center justify-between">
                             <span>Preferred</span>
