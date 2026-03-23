@@ -97,6 +97,19 @@ export default function Portfolio() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
+  const resumeUrl = "/naman_resume_final.pdf"
+
+  const handleResumeDownload = () => {
+    const link = document.createElement("a")
+    link.href = resumeUrl
+    link.download = "Naman_Bagdiya_Resume.pdf"
+    link.rel = "noopener"
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    window.open(resumeUrl, "_blank", "noopener,noreferrer")
+  }
+
   const projects = [
     {
       id: 1,
@@ -465,7 +478,7 @@ export default function Portfolio() {
                   <Button
                     size="lg"
                     className="bg-gradient-to-r from-cyan-400 to-lime-400 hover:from-cyan-300 hover:to-lime-300 text-black px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 font-mono text-lg border-2 border-transparent hover:border-cyan-300 relative overflow-hidden group"
-                    onClick={() => window.open("/naman_resume_final.pdf", "_blank")}
+                    onClick={handleResumeDownload}
                     style={{ boxShadow: "0 0 24px rgba(0, 255, 255, 0.35)" }}
                   >
                     <Download className="mr-2" size={20} />
@@ -1227,7 +1240,7 @@ export default function Portfolio() {
                         <Button
                           size="lg"
                           className="bg-gradient-to-r from-cyan-400 via-emerald-300 to-lime-300 hover:from-cyan-300 hover:via-emerald-200 hover:to-lime-200 text-black px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 font-mono text-lg w-full relative overflow-hidden group"
-                          onClick={() => window.open("/naman_resume_final.pdf", "_blank")}
+                          onClick={handleResumeDownload}
                           style={{ boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)" }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-lime-300 to-cyan-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
